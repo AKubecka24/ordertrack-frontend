@@ -3,7 +3,8 @@ import OrdersList from "./OrdersList";
 import "./App.css";
 import { Order } from "./types/Order";
 
-const API_URL = "https://ordertrack-backend.onrender.com";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
+
 
 function App() {
   const [currentOrder, setCurrentOrder] = useState<Order | null>(null);
