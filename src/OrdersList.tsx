@@ -7,7 +7,7 @@ interface OrdersListProps {
   filterStatus: string;
 }
 
-const API_URL = "https://ordertrack-backend.onrender.com";
+const API_URL = process.env.REACT_APP_API_URL || "http://localhost:8000";
 
 const OrdersList: React.FC<OrdersListProps> = ({
   refreshSignal,
@@ -36,7 +36,7 @@ const OrdersList: React.FC<OrdersListProps> = ({
       }
     } catch (error) {
       console.error("Błąd podczas pobierania zamówień:", error);
-      setOrders([]); // wyczyść na wszelki wypadek
+      setOrders([]);
     } finally {
       setLoading(false);
     }
