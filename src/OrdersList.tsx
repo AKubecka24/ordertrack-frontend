@@ -27,6 +27,7 @@ const OrdersList: React.FC<OrdersListProps> = ({
       }
 
       const data = await res.json();
+      console.log("Odebrane zamówienia:", data);
 
       if (Array.isArray(data)) {
         setOrders(data);
